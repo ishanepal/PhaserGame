@@ -1,0 +1,32 @@
+/* Center the game in the middle of the screen */
+body {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100vh; /* Make body take full viewport height */
+    margin: 0;
+    background: url(assets/a.png) no-repeat center center; /* Optional: Background for contrast */
+    background-size: cover;
+    background-position: center;
+}
+
+@media ( max-width: 480px){
+    #game {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70rem;
+        height: 65rem;
+        margin-top: -32.5rem;
+        margin-bottom: -35rem;
+        min-width: auto;
+    }
+}
+
+h3{
+    color: aliceblue;
+    text-align: center;
+    text-size-adjust: 150%;
+    font-family: fantasy;
+}
