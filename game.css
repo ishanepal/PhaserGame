@@ -1,32 +1,126 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
 /* Center the game in the middle of the screen */
 body {
     display: flex;
     justify-content: center; /* Horizontally center */
     align-items: center; /* Vertically center */
     height: 100vh; /* Make body take full viewport height */
+    overflow: hidden;
     margin: 0;
-    background: url(assets/a.png) no-repeat center center; /* Optional: Background for contrast */
+    background: url(assets/c.png) no-repeat center center; /* Optional: Background for contrast */
     background-size: cover;
     background-position: center;
 }
-
-@media ( max-width: 480px){
-    #game {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 70rem;
-        height: 65rem;
-        margin-top: -32.5rem;
-        margin-bottom: -35rem;
-        min-width: auto;
-    }
+  
+canvas{
+    position: relative;
+    max-width: 800px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
 }
+  /* Score styling */
+  .score-text {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: clamp(20px, 5vw, 40px);
+    font-family: "Times New Roman", serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
 
-h3{
-    color: aliceblue;
+  /*Game container with responsive design*/
+  .game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Game canvas container */
+  #game {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    background-color: rgb(41, 45, 83, 0.5);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  } 
+  
+  /* Game instructions */
+  .game-instructions {
+    color: #f8f8ff;
     text-align: center;
-    text-size-adjust: 150%;
+    margin-bottom: 20px;
+    font-size: clamp(16px, 3vw, 24px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     font-family: fantasy;
-}
+    max-width: 800px;
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    .game-container {
+      padding: 10px;
+    }
+  
+    #game {
+      max-width: 90vw;
+    }
+
+    canvas{
+        max-width: 90vw;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .game-container {
+      padding: 5px;
+    }
+  
+    #game {
+      max-width: 95vw;
+    }
+  
+    canvas {
+        max-width: 95vw;
+      }
+
+    .game-instructions {
+      margin-bottom: 10px;
+    }
+  }
+  
+  /* For devices with height constraints */
+  @media (max-height: 600px) {
+    .game-instructions {
+      font-size: clamp(14px, 2vw, 18px);
+      margin-bottom: 10px;
+    }
+  
+    #game {
+      max-height: 80vh;
+    }
+
+    canvas {
+        max-height: 80vh;
+    }
+  }
+  
+  
